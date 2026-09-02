@@ -1,0 +1,37 @@
+.main {
+  padding: 5rem 5rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.leftSection {
+  width: 50%;
+}
+.leftSection img {
+  width: 76%;
+}
+.rightSection {
+  width: 50%;
+}
+
+.rightSection h1 {
+  margin-bottom: 2rem;
+  font-size: 1.9rem;
+}
+
+.rightSection p {
+  margin-bottom: 1.6rem;
+  margin-top: 1.6rem;
+  font-size: 1.4rem;
+  color: gray;
+}
+.rightSection a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  /* margin-bottom: 1.6rem;/ */
+}
+
+.rightSection a:hover {
+  color: black;
+}

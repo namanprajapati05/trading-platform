@@ -1,0 +1,96 @@
+.main{
+    padding: 1rem;
+    box-sizing: border-box;   
+}
+
+.main header {
+    display: flex;
+    gap: 3rem;
+    font-size: 1rem;
+}
+
+.input{
+    width: 80%;
+    border: 1px solid gray;
+    height: 40px;
+    display: flex;
+    margin-top: 0.6rem;
+    align-items: center;
+    gap: 0.4rem;
+    padding-left: 0.4rem;
+}
+
+
+.input i{
+    font-size: 1.4rem;
+}
+
+.input input{
+    width: 90%;
+    height: 100%;
+    border: none;
+    font-size: 1rem;
+}
+.input input:focus{
+    outline: none;
+}
+
+.container {
+    width: 100%;
+    padding: 1.4rem;
+    box-sizing: border-box;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 0.8rem;
+    text-align: left ;
+    border-bottom: 1px solid #ddd;
+}
+
+.profit {
+    color: green;
+}
+
+.loss {
+    color: red;
+}
+
+
+
+ /* ---------------------------------------- */
+
+ .tableRow {
+    position: relative;
+ }
+.buttons {
+    position: absolute;
+    
+    right: 1rem;
+    opacity: 0;
+}
+
+.buttons button{
+  width: 5rem;
+  height: 30px;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+tr:hover .buttons {
+  opacity: 1;
+}
+
+.buy{
+  background-color: green;
+}
+.sell{
+  background-color: red;
+}

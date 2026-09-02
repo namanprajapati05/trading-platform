@@ -1,0 +1,71 @@
+.main{
+    padding: 6rem 5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.heading h1{
+   font-size: 2rem;
+   margin-bottom: 2rem;
+   text-align: center;
+
+}
+.heading h2{
+    font-size:1.5rem ;
+    margin-bottom: 4rem;
+    color: gray;
+}   
+
+
+.imageSection{
+    display: flex;
+    align-items: center;
+    gap: 8rem;
+    padding: 4rem 0rem 4rem 0rem ;
+}
+
+.imageSection h2{
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+
+}
+
+.imageSection h3{
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    color: gray;
+    font-weight: 400;
+}
+.imageSection input{
+    width: 70%;
+    height: 4rem;
+    font-size: 1.4rem;
+    padding-left: 0.5rem;
+}
+
+.imageSection button{
+    width: 60%;
+    height: 3.6rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+
+.imageSection p{
+    font-size: 1rem;
+    color: gray;
+    margin-top: 1rem;
+}
+
+.bottomH1{
+    font-size: 1.9rem;
+    margin-bottom: 1.8rem;
+}
+
+.bottomP{
+  font-size: 1.3rem;
+  text-align: center;
+  color: gray;
+}

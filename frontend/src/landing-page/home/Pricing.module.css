@@ -1,0 +1,47 @@
+.main{
+    padding:5rem 5rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.leftSection{
+    width: 40%;
+}
+.leftSection h1{
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+.leftSection p{
+    font-size: 1.3rem;
+    line-height: 2.4rem;
+}
+.leftSection a{
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.leftSection a:hover{
+    color: black;
+}
+
+
+
+.rightSection{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+}
+.pricingSection img{
+    width: 8rem;
+
+}
+
+.pricingSection{
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem; 
+    
+}

@@ -1,0 +1,35 @@
+.main{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 1.5rem 6rem;
+   box-sizing: border-box;
+   color: gray;
+   height: auto;
+   border-bottom: 1px solid lightgray ;
+   background-color: white;
+   position: sticky;
+   top: 0px;
+}
+
+.left img{
+    width: 10rem;
+}
+
+
+.right ul{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+}
+.right ul a{
+    list-style: none;
+    text-decoration: none;
+    color: gray;
+    font-size: 1.2rem;
+
+}
+.right ul a:hover{
+    color: rgb(19, 116, 148);
+}

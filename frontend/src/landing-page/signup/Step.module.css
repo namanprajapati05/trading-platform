@@ -1,0 +1,42 @@
+.main{
+    padding: 4rem 10rem;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow: hidden;
+
+}
+
+.main h1{
+  text-align: center;
+  font-size: var(--heading-size);
+  padding-bottom: 3rem;
+}
+.coverDiv{
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.coverDiv > div {
+    flex: 1;
+}
+
+
+.stpes {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+   
+}
+.stpes i{
+    margin-right: 1.3rem;
+    font-size: 2rem;
+
+}
+
+
+.main hr{
+   
+  background-color: #6f6d6d;    
+ 
+}

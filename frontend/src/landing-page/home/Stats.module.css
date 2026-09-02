@@ -1,0 +1,58 @@
+.main{
+    display: flex;
+    align-items: start;
+    padding: 4rem 5rem;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+}
+
+
+.leftSection{
+  width: 40%;
+}
+.leftSectionHeading{
+    margin-bottom: 2.4rem;
+}
+.leftSection h1{
+     font-size: 1.7rem;
+     margin-bottom: 1rem;
+}
+
+.leftSection p{
+    font-size: 1.3rem;
+    line-height: 2rem;
+    padding-bottom: 2rem;
+    color: gray;
+
+}
+.rightSection{
+    width: 60%;
+    overflow: hidden;
+}
+.rightSection img{
+    width: 100%;
+}
+
+.rightSection a{
+    text-decoration: none;
+} 
+.rightSection a:hover{
+    color: black;
+} 
+.rightSection p{
+    font-size: 1.4rem;
+      display: flex;
+    align-items: center;
+
+}
+.rightSection p i{
+    margin-left: 0.5rem;
+}
+.links{
+    display: flex;
+    align-items: center;
+   gap: 3rem;
+   font-weight: 500;
+}
+

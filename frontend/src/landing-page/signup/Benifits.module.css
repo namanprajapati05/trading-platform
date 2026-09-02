@@ -1,0 +1,25 @@
+.main{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 7rem 5rem 4rem  5rem ;
+    box-sizing: border-box;
+}
+
+.leftSection img{
+    width: 70%;
+}
+.leftSection h1{
+    font-size: var(--heading-size) ;
+    margin-top: 3rem;
+}
+
+.rightSection h1{
+    font-size: var(--heading-size) ;
+    margin-bottom: 2.5rem;
+}
+.rightSection p{
+    font-size: 1.3rem;
+    color: gray;
+    margin-bottom: 4rem;
+}

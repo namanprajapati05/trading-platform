@@ -1,0 +1,96 @@
+.dashboard {
+    width: 100%;
+    padding: 2.2rem 2.8rem;
+    box-sizing: border-box;
+}
+
+.greeting {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 0 1.5rem;
+}
+
+.dashboard hr {
+    border: none;
+    border-top: 0.0625rem solid #e5e5e5;
+    margin: 1.5rem 0;
+}
+
+.sectionTitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.equityCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 46.875rem;
+    padding: 1.5rem 0;
+}
+
+.mainBalance h1 {
+    font-size: 2.375rem;
+    font-weight: 500;
+    margin: 0 0 0.5rem;
+}
+
+.mainBalance p {
+    margin: 0;
+    color: #777;
+    font-size: 0.875rem;
+}
+
+.details {
+    min-width: 18.75rem;
+}
+
+.details p {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.75rem 0;
+    color: #555;
+    font-size: 0.875rem;
+}
+
+.details p span:last-child {
+    color: #222;
+}
+
+.holding {
+    padding-top: 0.625rem;
+}
+
+.holding h1 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.625rem;
+}
+
+.holding h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .dashboard {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .equityCard {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .details {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .mainBalance h1 {
+        font-size: 2rem;
+    }
+}

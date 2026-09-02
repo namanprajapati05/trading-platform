@@ -1,0 +1,63 @@
+.main {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  background-color: #a5b2c758;
+}
+
+.main h1 {
+  margin: 0 0 2rem 0;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+
+
+.tableHead {
+  background-color: #f0f2f5;
+}
+
+.tableHead th {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444;
+}
+
+
+.tableBody tr:nth-child(even) {
+  background-color: #f1efeda5;
+}
+.tableBody td {
+  padding: 1rem 1.2rem;
+  font-size: 1rem;
+  color: #333;
+  border-top: 0.1rem solid #e5e5e5;
+}
+
+
+.tableBody td:last-child {
+  font-weight: 600;
+}
+
+.tableBody td.buy {
+  color: green;
+  font-weight: 700;
+}
+
+.tableBody td.sell {
+  color: red;
+  font-weight: 700;
+}

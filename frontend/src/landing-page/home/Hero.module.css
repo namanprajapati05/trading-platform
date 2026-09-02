@@ -1,0 +1,41 @@
+.main{
+    padding: 4rem 5rem;
+    box-sizing: border-box;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+}
+.image{
+    padding: 2rem 0rem;
+}
+.image img{
+   width: 60%;
+}
+.heroText{
+    padding-top: 2rem;
+    text-align: center;
+}
+.heroText h1{
+    margin-bottom: 1.6rem;
+}
+
+
+/* .heroText button{
+    padding: 0.4rem 2rem;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 0.2rem;
+    background-color: rgb(33, 92, 152);
+    color: white;
+    font-weight: 600;
+    margin-top: 3rem;
+}
+
+.heroText button:hover{
+    background-color: black;
+} */
+
+.button{
+    margin-top: 3rem;
+}

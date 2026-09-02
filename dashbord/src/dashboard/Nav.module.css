@@ -1,0 +1,43 @@
+.main {
+  display: flex;
+  padding: 1rem 2rem 2.6rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid gray;
+}
+
+.logo img {
+  width: 4rem;
+}
+.navLink {
+  display: flex;
+  gap: 2rem;
+}
+.navLink ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+.navLink ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.navLink ul li a:hover {
+  color: rgb(12, 131, 186);
+}
+
+.profile{
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.profile img {
+  width: 3rem;
+}
+
+.profile i{
+  font-size: 2rem;
+}
