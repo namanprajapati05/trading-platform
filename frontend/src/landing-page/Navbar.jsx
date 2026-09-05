@@ -1,12 +1,9 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 import style from "./Navbar.module.css"
-import { useNavigate } from "react-router-dom";
 
 function Navbar() {
 
-
-     const navigate = useNavigate();
 
      const goToTradingDashboard = () => {
           window.location.href = "https://tradingdashboard-ecru.vercel.app/"
