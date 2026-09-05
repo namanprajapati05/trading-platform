@@ -1,8 +1,31 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import { Link, redirect } from "react-router-dom"
 import style from "./Nav.module.css"
+import axios from 'axios'
+
 
 const Nav = () => {
+
+
+    const logout = async () => {
+        try {
+            await axios.post(
+                "http://localhost:8000/user/logout",
+                {},
+                {
+                    withCredentials: true,
+                }
+            );
+             
+        
+             window.location.reload();
+             
+            console.log("User was logged out");
+        } catch (error) {
+            console.log(error.response?.data);
+        }
+    }
+
     return (
         <div className={style.main} >
             <div className={style.logo} >
@@ -33,7 +56,7 @@ const Nav = () => {
                 <div className={style.profile}>
                     {/* <img src="" alt="profile image" /> */}
                     <i className="bi bi-person-circle"></i>
-                    <span>username</span>
+                    <span onClick={logout} >username</span>
                 </div>
 
             </div>

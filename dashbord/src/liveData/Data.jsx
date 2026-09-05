@@ -9,7 +9,7 @@ const Data = ({ setTradeType,setSelectedStock }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/watchlist")
+      .get("http://localhost:8000/watchlist/watchlist")
       .then((res) => {
         setWatchlist(res.data);
       })
