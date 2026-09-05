@@ -6,11 +6,11 @@ import { useNavigate } from "react-router-dom";
 function Navbar() {
 
 
-       const navigate = useNavigate();
+     const navigate = useNavigate();
 
-       const goToTradingDashboard = ()=>{
+     const goToTradingDashboard = () => {
           window.location.href = "https://tradingdashboard-ecru.vercel.app/"
-       }
+     }
 
      return (< div className={style.main}>
 
@@ -27,10 +27,18 @@ function Navbar() {
                     <Link to="/Pricing" ><li>Pricing</li></Link>
                     <Link to="/Support" ><li>Support</li></Link>
                     <Link to="/CreateAccount" ><li> <button > signup </button></li></Link>
-                  <Link>  <li onClick={goToTradingDashboard} style={{cursor:"pointer"} } ><img src="https://kite.zerodha.com/static/images/kite-logo.svg" alt="kite logo" style={{width:"3rem"}} /></li>
-                  </Link>
-                    
-            
+                    <li
+                         onClick={goToTradingDashboard}
+                         style={{ cursor: "pointer" }}
+                    >
+                         <img
+                              src="https://kite.zerodha.com/static/images/kite-logo.svg"
+                              alt="kite logo"
+                              style={{ width: "3rem" }}
+                         />
+                    </li>
+
+
                </ul>
           </div>
      </div>
