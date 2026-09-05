@@ -33,3 +33,14 @@
 .right ul a:hover{
     color: rgb(19, 116, 148);
 }
+
+.right li button{
+    width: 6rem;
+    height: 40px;
+    font-size: 1.2rem;
+    background-color: rgb(9, 74, 128);
+    color: white;
+    border: none;
+    border-radius: 10px;
+
+}
