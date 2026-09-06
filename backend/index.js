@@ -10,6 +10,7 @@ const userRoutes = require("./routes/user");
 const positionRoutes = require("./routes/position")
 const holdingRoutes = require("./routes/holding")
 const watchlistRoutes = require("./routes/watchlist")
+const orderRoutes = require("./routes/order")
 const cookieParser = require("cookie-parser");
 
 const app = express();
@@ -43,7 +44,7 @@ app.use("/holding" , holdingRoutes);
 app.use("/position" , positionRoutes)
 app.use("/holding" , holdingRoutes )
 app.use("/watchlist" , watchlistRoutes )
-
+app.use("/order" , orderRoutes )
 
 
 app.listen(PORT, () => {

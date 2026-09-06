@@ -8,8 +8,8 @@ import Order from './Order'
 import Fund from './Fund'
 
 
-const MainDashboard = ({order}) => {
-  console.log(order)
+const MainDashboard = () => {
+  
    
   return (
     <div>
@@ -19,7 +19,7 @@ const MainDashboard = ({order}) => {
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/holdings'  element={<Holding/>} />
           <Route path="/positions" element={<Position/>} />
-          <Route path='/orders' element={<Order order={order} />}/>
+          <Route path='/orders' element={<Order/>}/>
           <Route path='/funds' element={<Fund/>} />
 
         </Routes> 

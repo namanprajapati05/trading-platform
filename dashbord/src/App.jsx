@@ -11,7 +11,7 @@ const App = () => {
   const [tradeType, setTradeType] = useState(null);
   const [selectedStock, setSelectedStock] = useState(null);
   // const [order, setOrder] = useState(null)
-  const [orderArr, setOrderArr] = useState([]);
+
 
   const [isLogin, setIsLogin] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -66,7 +66,6 @@ const App = () => {
             <Trade
               type={tradeType}
               stock={selectedStock}
-              order={addOrder}
               onClose={() => setTradeType(null)}
             />
           )}
@@ -84,7 +83,7 @@ const App = () => {
           </div>
 
           <div style={{ width: "67%" }}>
-            <MainDashboard order={orderArr} />
+            <MainDashboard  />
           </div>
         </>
       )}

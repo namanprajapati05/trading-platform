@@ -18,6 +18,9 @@ const Data = ({ setTradeType,setSelectedStock }) => {
       });
   }, []);
 
+ 
+
+
   return (
     <div className={style.main} >
       <header>

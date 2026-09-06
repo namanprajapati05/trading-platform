@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import style from "./Trade.module.css"
+import axios from 'axios';
 
 
-const Trade = ({ type, onClose, stock, order }) => {
+const Trade = ({ type, onClose, stock }) => {
 
   const [status, setStatus] = useState(type);
+
   return (
     <div className={style.main}>
 
@@ -18,7 +20,7 @@ const Trade = ({ type, onClose, stock, order }) => {
         </div>
 
         <div className={style.body}>
-          {status === "buy" ? <Buy stock={stock} order={order} /> : <Sell stock={stock} order={order} />}
+          {status === "buy" ? <Buy stock={stock}  /> : <Sell stock={stock} />}
         </div>
       </div>
     </div>
@@ -26,26 +28,41 @@ const Trade = ({ type, onClose, stock, order }) => {
 }
 
 
-const Buy = ({ stock , order }) => {
-
+const Buy = ({ stock }) => {
 
   const [quantity, setQuantity] = useState("");
   const [orderType, setOrderType] = useState("market");
   const [price, setPrice] = useState(stock.price);
 
-  const handleBuyOrder = (e) => {
+  const handleBuyOrder = async(e) => {
     e.preventDefault();
 
     const newOrder = {
       name: stock.name,
-      quantity: quantity,
+      qty: Number(quantity),
+      price: Number(price),
       orderType: orderType,
-      price: price,
-      type: "BUY"
+      mode: "BUY",
     };
 
-    console.log(newOrder);
-    order(newOrder);
+    // console.log(newOrder);
+    // order(newOrder);
+
+
+    try {
+       const response = await axios.post("http://localhost:8000/order/newOrder" , newOrder , {
+        withCredentials:true
+       });
+         console.log(response.data);
+
+      setQuantity("");
+      setOrderType("market");
+      setPrice(stock.price);
+
+
+    } catch (error) {
+      console.log(error.response?.data || error.message);
+    }
 
   };
 
@@ -79,11 +96,6 @@ const Buy = ({ stock , order }) => {
           onChange={(e) => setPrice(e.target.value)}
         />
 
-        {/* <select>
-            <option value="CNC">CNC</option>
-            <option value="MIS">MIS</option>
-          </select> */}
-
         <button type="submit" >
           Buy
         </button>
@@ -93,25 +105,57 @@ const Buy = ({ stock , order }) => {
 }
 
 
-const Sell = ({ stock , order }) => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Sell = ({ stock, order }) => {
 
   const [quantity, setQuantity] = useState("");
   const [orderType, setOrderType] = useState("market");
   const [price, setPrice] = useState(stock.price);
 
-  const handleSellOrder=(e)=>{
+  const handleSellOrder = async(e) => {
 
     e.preventDefault();
 
-    const newOrder={
-       name: stock.name,
-      quantity: quantity,
+    const newOrder = {
+      name: stock.name,
+      qty: Number(quantity),
+      price: Number(price),
       orderType: orderType,
-      price: price,
-      type: "Sell"
+      mode: "SELL",
     }
-    console.log(newOrder);
-    order(newOrder);
+    // console.log(newOrder);
+    // order(newOrder);
+
+
+    try {
+
+        const response = await axios.post("http://localhost:8000/order/newOrder" , newOrder,{
+          withCredentials:true
+        })
+       
+        console.log(response);
+
+      setQuantity("");
+      setOrderType("market");
+      setPrice(stock.price);
+
+    } catch (error) {
+       console.log(error.response?.data || error.message);
+    }
+
   }
 
   return (
@@ -126,10 +170,10 @@ const Sell = ({ stock , order }) => {
           placeholder="Qty"
           min="1"
           value={quantity}
-          onChange={(e)=>setQuantity(e.target.value)}
+          onChange={(e) => setQuantity(e.target.value)}
         />
 
-        <select onChange={(e)=>setOrderType(e.target.value)} >
+        <select value={orderType}  onChange={(e) => setOrderType(e.target.value)} >
           <option value="market">Market</option>
           <option value="limit">Limit</option>
         </select>
@@ -138,8 +182,8 @@ const Sell = ({ stock , order }) => {
           type="number"
           placeholder="Price"
           value={price}
-          readOnly = { orderType ==="market" } 
-          onChange={(e)=>setPrice(e.target.value)}
+          readOnly={orderType === "market"}
+          onChange={(e) => setPrice(e.target.value)}
 
         />
 

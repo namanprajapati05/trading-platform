@@ -1,9 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import style from "./Order.module.css"
+import axios from 'axios';
 
-const Order = ({ order }) => {
+const Order = () => {
 
-  // const [order , serOrder] = useState({});
+   const [orders, setOrders] = useState([]);
+
+
+  const api = "http://localhost:8000/order/allOrder"
+ 
+  useEffect(() => {
+    const getOrders = async () => {
+      try {
+        const response = await axios.get(api, {
+          withCredentials: true,
+        });
+
+        // console.log(response.data);
+        setOrders(response.data);
+      } catch (error) {
+        console.log(error.response?.data || error.message);
+      }
+    };
+
+    getOrders();
+  }, []);
+
 
   return (
     <div className={style.main}>
@@ -20,21 +42,28 @@ const Order = ({ order }) => {
           </tr>
         </thead>
 
-        <tbody className={style.tableBody} >
-          {order.map((item, index) => (
-            <tr key={index}>
+         <tbody className={style.tableBody}>
+          {orders.map((item) => (
+            <tr key={item._id}>
               <td>{item.name}</td>
-              <td>{item.quantity}</td>
+              <td>{item.qty}</td>
               <td>₹{item.price}</td>
               <td>{item.orderType}</td>
-              <td className={
-                item.type === "BUY"
-                  ? style.buy
-                  : style.sell
-              } >{item.type}</td>
+
+              <td
+                className={
+                  item.mode === "BUY"
+                    ? style.buy
+                    : style.sell
+                }
+              >
+                {item.mode}
+              </td>
             </tr>
           ))}
         </tbody>
+
+
       </table>
 
     </div>
