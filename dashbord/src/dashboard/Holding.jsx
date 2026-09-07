@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import style from "./Holding.module.css"
 import axios from "axios"
+import api from '../api';
 
 const Holding = () => {
     const [holding, setHolding] = useState([]);
 
-    useEffect(() => {
-        axios.get("http://localhost:8000/holding/all")
-            .then((res) => {
+    // useEffect(() => {
+    //     axios.get("http://localhost:8000/holding/all")
+    //         .then((res) => {
+    //             // console.log(res.data);
+    //             setHolding(res.data);
+    //         })
+    // }, [])
+
+    useEffect(()=>{
+      api.get("/holding/all") .then((res) => {
                 // console.log(res.data);
                 setHolding(res.data);
             })
-    }, [])
+    },[])
 
     return (
         <div className={style.main} > 

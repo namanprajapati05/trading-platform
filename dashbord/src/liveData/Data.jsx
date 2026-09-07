@@ -1,23 +1,33 @@
 import React, { useState, useEffect } from 'react'
 import style from "./Data.module.css"
 import axios from "axios"
+import api from '../api';
 
 const Data = ({ setTradeType,setSelectedStock }) => {
 
   const [watchlist, setWatchlist] = useState([]);
   const [stock, setStock] = useState("")
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/watchlist/watchlist")
-      .then((res) => {
-        setWatchlist(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:8000/watchlist/watchlist")
+  //     .then((res) => {
+  //       setWatchlist(res.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
 
+
+  useEffect(()=>{
+    api.get("/watchlist/watchlist") .then((res) => {
+        setWatchlist(res.data);
+       })
+       .catch((error) => {
+         console.log(error);
+       });
+  },[])
  
 
 

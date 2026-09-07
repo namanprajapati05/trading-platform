@@ -2,14 +2,15 @@ import axios from 'axios';
 import React from 'react'
 import { useEffect, useState } from 'react';
 import style from "./Position.module.css"
+import api from '../api';
 
 const Position = () => {
 
     const [positions, setPositions] = useState([]);
 
     useEffect(() => {
-        axios
-            .get("http://localhost:8000/Position/all")
+        
+        api.get("Position/all")
             .then((res) => {
                 setPositions(res.data);
             })

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, redirect } from "react-router-dom"
 import style from "./Nav.module.css"
 import axios from 'axios'
+import api from '../api'
 
 
 const Nav = () => {
@@ -9,14 +10,15 @@ const Nav = () => {
 
     const logout = async () => {
         try {
-            await axios.post(
-                "http://localhost:8000/user/logout",
-                {},
-                {
-                    withCredentials: true,
-                }
-            );
+            // await axios.post(
+            //     "http://localhost:8000/user/logout",
+            //     {},
+            //     {
+            //         withCredentials: true,
+            //     }
+            // );
              
+            await api.post("/user/logout"),
         
              window.location.reload();
              

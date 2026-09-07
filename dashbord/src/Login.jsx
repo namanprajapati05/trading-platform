@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import style from "./login.module.css"
 import axios from 'axios'
+import api from './api'
 
 
 const Login = ({setIsLogin}) => {
@@ -20,13 +21,15 @@ const Login = ({setIsLogin}) => {
 
         try {
 
-            const response = await axios.post(
-                "http://localhost:8000/user/login",
-                loginData,
-                {
-                    withCredentials: true,
-                }
-            );
+            // const response = await axios.post(
+            //     "http://localhost:8000/user/login",
+            //     loginData,
+            //     {
+            //         withCredentials: true,
+            //     }
+            // );
+
+            const response = await api.post("/user/login") ;
 
             console.log(response.data);
             setIsLogin(true)

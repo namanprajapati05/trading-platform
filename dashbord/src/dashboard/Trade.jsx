@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import style from "./Trade.module.css"
 import axios from 'axios';
+import api from '../api';
 
 
 const Trade = ({ type, onClose, stock }) => {
@@ -20,7 +21,7 @@ const Trade = ({ type, onClose, stock }) => {
         </div>
 
         <div className={style.body}>
-          {status === "buy" ? <Buy stock={stock}  /> : <Sell stock={stock} />}
+          {status === "buy" ? <Buy stock={stock} /> : <Sell stock={stock} />}
         </div>
       </div>
     </div>
@@ -34,7 +35,7 @@ const Buy = ({ stock }) => {
   const [orderType, setOrderType] = useState("market");
   const [price, setPrice] = useState(stock.price);
 
-  const handleBuyOrder = async(e) => {
+  const handleBuyOrder = async (e) => {
     e.preventDefault();
 
     const newOrder = {
@@ -50,10 +51,8 @@ const Buy = ({ stock }) => {
 
 
     try {
-       const response = await axios.post("http://localhost:8000/order/newOrder" , newOrder , {
-        withCredentials:true
-       });
-         console.log(response.data);
+      const response = await api.post("/order/newOrder", newOrder);
+      console.log(response.data);
 
       setQuantity("");
       setOrderType("market");
@@ -105,27 +104,13 @@ const Buy = ({ stock }) => {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const Sell = ({ stock, order }) => {
 
   const [quantity, setQuantity] = useState("");
   const [orderType, setOrderType] = useState("market");
   const [price, setPrice] = useState(stock.price);
 
-  const handleSellOrder = async(e) => {
+  const handleSellOrder = async (e) => {
 
     e.preventDefault();
 
@@ -142,18 +127,16 @@ const Sell = ({ stock, order }) => {
 
     try {
 
-        const response = await axios.post("http://localhost:8000/order/newOrder" , newOrder,{
-          withCredentials:true
-        })
-       
-        console.log(response);
+      const response = await api.post("/order/newOrder", newOrder)
+
+      console.log(response);
 
       setQuantity("");
       setOrderType("market");
       setPrice(stock.price);
 
     } catch (error) {
-       console.log(error.response?.data || error.message);
+      console.log(error.response?.data || error.message);
     }
 
   }
@@ -173,7 +156,7 @@ const Sell = ({ stock, order }) => {
           onChange={(e) => setQuantity(e.target.value)}
         />
 
-        <select value={orderType}  onChange={(e) => setOrderType(e.target.value)} >
+        <select value={orderType} onChange={(e) => setOrderType(e.target.value)} >
           <option value="market">Market</option>
           <option value="limit">Limit</option>
         </select>
