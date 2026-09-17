@@ -1,107 +1,361 @@
-import React, { useState, useEffect } from 'react'
-import style from "./Data.module.css"
-import axios from "axios"
-import api from '../api';
+import { useEffect, useState } from "react";
+import style from "./Data.module.css";
+import api from "../api";
+import socket from "../services/socket";
 
-const Data = ({ setTradeType,setSelectedStock }) => {
+const symbolMap = {
+    ICICIBANK: "ICICIBANK.NS",
+    SBIN: "SBIN.NS",
+    TATAMOTORS: "TATAMOTORS.NS",
+    WIPRO: "WIPRO.NS",
+    TCS: "TCS.NS",
+    INFY: "INFY.NS",
+    ITC: "ITC.NS",
+    RELIANCE: "RELIANCE.NS",
+    HDFCBANK: "HDFCBANK.NS",
+    BHARTIARTL: "BHARTIARTL.NS",
+};
 
-  const [watchlist, setWatchlist] = useState([]);
-  const [stock, setStock] = useState("")
+const Data = ({ setTradeType, setSelectedStock }) => {
 
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:8000/watchlist/watchlist")
-  //     .then((res) => {
-  //       setWatchlist(res.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, []);
+    const [watchlist, setWatchlist] = useState([]);
+    const [marketData, setMarketData] = useState([]);
+
+    // Get watchlist from backend
+
+    useEffect(() => {
+
+        api.get("/watchlist/watchlist")
+            .then((res) => {
+
+                // console.log("Watchlist:", res.data);
+
+                setWatchlist(res.data);
+
+            })
+            .catch((error) => {
+
+                console.log("Watchlist error:", error);
+
+            });
+
+    }, []);
 
 
-  useEffect(()=>{
-    api.get("/watchlist/watchlist") .then((res) => {
-        setWatchlist(res.data);
-       })
-       .catch((error) => {
-         console.log(error);
-       });
-  },[])
+    // Receive live market data
+
+    useEffect(() => {
+
+        const handleMarketData = (data) => {
+
+            // console.log("Live market data:", data);
+
+            setMarketData(data);
+
+        };
+
+        socket.on("market-data", handleMarketData);
+
+        return () => {
+
+            socket.off("market-data", handleMarketData);
+
+        };
+
+    }, []);
+
+
+    return (
+        <div className={style.main}>
+
+            {/* <header>
+
+                <span>NIFTY50 24534</span>
+
+                <span>SENSEX 46378</span>
+
+            </header> */}
+ 
+           <header>
+    <span>
+        NIFTY50{" "}
+        {marketData.find(
+            (item) => item.symbol === "^NSEI"
+        )?.price ?? "--"}
+    </span>
+
+    <span>
+        SENSEX{" "}
+        {marketData.find(
+            (item) => item.symbol === "^BSESN"
+        )?.price ?? "--"}
+    </span>
+</header>
+
+            <main>
+
+                <div className={style.input}>
+
+                    <span>
+                        <i className="bi bi-search"></i>
+                    </span>
+
+                    <input
+                        type="text"
+                        placeholder="search stocks"
+                    />
+
+                </div>
+
+
+                <div className={style.container}>
+
+                    <table className={style.table}>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Name</th>
+
+                                <th>Price</th>
+
+                                <th>Percent</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {watchlist.map((stock) => {
+
+                                // Backend stock name
+                                const symbol = symbolMap[stock.name];
+
+                                // Find live data
+                                const liveStock = marketData.find(
+                                    (item) =>
+                                        item.symbol === symbol
+                                );
+
+
+                                // Live price
+                                const price =
+                                    liveStock?.price ?? stock.price;
+
+
+                                // Live percentage
+                                const percent =
+                                    liveStock?.changePercent !== undefined
+                                        ? `${liveStock.changePercent}%`
+                                        : stock.percent;
+
+
+                                // Profit / loss
+                                const isDown =
+                                    liveStock
+                                        ? liveStock.change < 0
+                                        : stock.isDown;
+
+
+                                return (
+
+                                    <tr
+                                        key={stock._id}
+                                        className={style.tableRow}
+                                    >
+
+                                        {/* Backend name */}
+                                        <td>
+                                            {stock.name}
+                                        </td>
+
+
+                                        {/* Live price */}
+                                        <td>
+                                            ₹{price}
+                                        </td>
+
+
+                                        {/* Live percentage */}
+                                        <td
+                                            className={
+                                                isDown
+                                                    ? style.loss
+                                                    : style.profit
+                                            }
+                                        >
+                                            {percent}
+                                        </td>
+
+
+                                        {/* Buttons */}
+                                        <td className={style.buttons}>
+
+                                            <button
+                                                className={style.buy}
+                                                onClick={() => {
+
+                                                    setSelectedStock({
+                                                        name: stock.name,
+                                                        price: price
+                                                    });
+
+                                                    setTradeType("buy");
+
+                                                }}
+                                            >
+                                                Buy
+                                            </button>
+
+
+                                            <button
+                                                className={style.sell}
+                                                onClick={() => {
+
+                                                    setTradeType("sell");
+
+                                                    setSelectedStock({
+                                                        name: stock.name,
+                                                        price: price
+                                                    });
+
+                                                }}
+                                            >
+                                                Sell
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+                                );
+
+                            })}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </main>
+
+        </div>
+    );
+};
+
+export default Data;
+
+
+// ------------------------------------------------------------------
+
+// import React, { useState, useEffect } from 'react'
+// import style from "./Data.module.css"
+// import axios from "axios"
+// import api from '../api';
+
+// const Data = ({ setTradeType,setSelectedStock }) => {
+
+//   const [watchlist, setWatchlist] = useState([]);
+//   const [stock, setStock] = useState("")
+
+//   // useEffect(() => {
+//   //   axios
+//   //     .get("http://localhost:8000/watchlist/watchlist")
+//   //     .then((res) => {
+//   //       setWatchlist(res.data);
+//   //     })
+//   //     .catch((error) => {
+//   //       console.log(error);
+//   //     });
+//   // }, []);
+
+
+//   useEffect(()=>{
+//     api.get("/watchlist/watchlist") .then((res) => {
+//         setWatchlist(res.data);
+//        })
+//        .catch((error) => {
+//          console.log(error);
+//        });
+//   },[])
  
 
 
-  return (
-    <div className={style.main} >
-      <header>
-        <span>NIFTY50 24534</span>
-        <span>SENSEX 46378</span>
-      </header>
-
-      <main>
-        <div className={style.input} >
-          <span><i className="bi bi-search"></i></span>
-          <input type="text" placeholder='search stocks' />
-        </div>
-
-        <div className={style.container} >
-          <table className={style.table} >
-
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Percent</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {watchlist.map((stock) => (
-                <tr key={stock._id} className={style.tableRow} >
-                  <td>{stock.name}</td>
-
-                  <td>₹{stock.price}</td>
-
-                  <td className={stock.isDown ? style.loss : style.profit}>
-                    {stock.percent}
-                  </td>
-                  <td className={style.buttons}>
-
-
-                    <button className={style.buy} onClick={() => {
-                      setSelectedStock({
-                        name: stock.name,
-                        price: stock.price
-                      });
-                      setTradeType("buy");
-                    }}  >Buy</button>
-
-                    <button className={style.sell} onClick={() => {
-                      setTradeType("sell");
-                      setSelectedStock({
-                        name: stock.name,
-                        price: stock.price
-
-                      });
-                    }} >Sell</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </main>
-    </div>
-  )
-}
-
-// const Buttons = () => {
 //   return (
-//     <div className={style.buttonWrapeer} style={{ display: "flex", alignItems: "center", gap: "3rem" }} >
-//       <button style={{  }} >buy  </button>
-//       <button style={{ width: "5rem", height: "30px", backgroundColor: "red ", color: "white", border: "none", fontSize: "1.2rem" }} >sell  </button>
+//     <div className={style.main} >
+//       <header>
+//         <span>NIFTY50 24534</span>
+//         <span>SENSEX 46378</span>
+//       </header>
+
+//       <main>
+//         <div className={style.input} >
+//           <span><i className="bi bi-search"></i></span>
+//           <input type="text" placeholder='search stocks' />
+//         </div>
+
+//         <div className={style.container} >
+//           <table className={style.table} >
+
+//             <thead>
+//               <tr>
+//                 <th>Name</th>
+//                 <th>Price</th>
+//                 <th>Percent</th>
+//               </tr>
+//             </thead>
+
+//             <tbody>
+//               {watchlist.map((stock) => (
+//                 <tr key={stock._id} className={style.tableRow} >
+//                   <td>{stock.name}</td>
+
+//                   <td>₹{stock.price}</td>
+
+//                   <td className={stock.isDown ? style.loss : style.profit}>
+//                     {stock.percent}
+//                   </td>
+//                   <td className={style.buttons}>
+
+
+//                     <button className={style.buy} onClick={() => {
+//                       setSelectedStock({
+//                         name: stock.name,
+//                         price: stock.price
+//                       });
+//                       setTradeType("buy");
+//                     }}  >Buy</button>
+
+//                     <button className={style.sell} onClick={() => {
+//                       setTradeType("sell");
+//                       setSelectedStock({
+//                         name: stock.name,
+//                         price: stock.price
+
+//                       });
+//                     }} >Sell</button>
+//                   </td>
+//                 </tr>
+//               ))}
+//             </tbody>
+//           </table>
+//         </div>
+//       </main>
 //     </div>
 //   )
 // }
 
-export default Data
+// // const Buttons = () => {
+// //   return (
+// //     <div className={style.buttonWrapeer} style={{ display: "flex", alignItems: "center", gap: "3rem" }} >
+// //       <button style={{  }} >buy  </button>
+// //       <button style={{ width: "5rem", height: "30px", backgroundColor: "red ", color: "white", border: "none", fontSize: "1.2rem" }} >sell  </button>
+// //     </div>
+// //   )
+// // }
+
+// export default Data

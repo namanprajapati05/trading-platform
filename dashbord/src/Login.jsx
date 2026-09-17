@@ -29,7 +29,7 @@ const Login = ({setIsLogin}) => {
             //     }
             // );
 
-            const response = await api.post("/user/login") ;
+            const response = await api.post("/user/login" ,  loginData ) ;
 
             console.log(response.data);
             setIsLogin(true)

@@ -42,11 +42,7 @@ mongoose
 app.use("/user", userRoutes);
 app.use("/holding" , holdingRoutes);
 app.use("/position" , positionRoutes)
-app.use("/holding" , holdingRoutes )
 app.use("/watchlist" , watchlistRoutes )
 app.use("/order" , orderRoutes )
 
-
-app.listen(PORT, () => {
-  console.log(`server is running on port number ${PORT} `);
-});
+module.exports = app;
