@@ -6,7 +6,9 @@ function Navbar() {
 
 
      const goToTradingDashboard = () => {
-          window.location.href = "https://tradingdashboard-ecru.vercel.app/"
+          // window.location.href = "https://tradingdashboard-ecru.vercel.app/"
+          window.location.href = "https://trading-dashboard-7o92f56tn-namans-projects-b6811f1a.vercel.app/"
+          
      }
 
      return (< div className={style.main}>
