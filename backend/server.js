@@ -10,10 +10,8 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: [
-            "http://localhost:3000",
-            "http://localhost:5173"
-        ],
+        origin: "https://trading-dashboard-k3zagrska-namans-projects-b6811f1a.vercel.app",
+        methods: ["GET", "POST"],
         credentials: true,
     },
 });
