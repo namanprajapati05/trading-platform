@@ -19,10 +19,14 @@ const PORT = process.env.PORT || 8000;
 // Middleware 
 
 app.use(cors({
-    origin: ["http://localhost:3000", "http://localhost:5173" , "https://trading-dashboard-omega-flax.vercel.app/"],
+    origin: [
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "https://trading-dashboard-k3zagrska-namans-projects-b6811f1a.vercel.app"
+    ],
     credentials: true,
-  }));
-  
+}));
+
 app.use(express.json());
 app.use(cookieParser());
 
