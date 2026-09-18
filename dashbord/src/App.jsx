@@ -4,6 +4,7 @@ import MainDashboard from './dashboard/MainDashboard'
 import Trade from './dashboard/Trade'
 import Login from './Login'
 import axios from 'axios'
+import api from "./api"
 
 
 const App = () => {
@@ -21,13 +22,7 @@ const App = () => {
 
     const checkLogin = async () => {
       try {
-        await axios.get(
-          "http://localhost:8000/user/profile",
-          {
-            withCredentials: true,
-          }
-        );
-
+       await api.get("/user/profile");
         setIsLogin(true);
         
       } catch (error) {
