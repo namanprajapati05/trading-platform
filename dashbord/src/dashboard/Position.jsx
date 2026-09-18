@@ -10,7 +10,7 @@ const Position = () => {
 
     useEffect(() => {
         
-        api.get("Position/all")
+        api.get("/Position/all")
             .then((res) => {
                 setPositions(res.data);
             })
