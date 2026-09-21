@@ -4,13 +4,10 @@ import MainDashboard from './dashboard/MainDashboard'
 import Trade from './dashboard/Trade'
 import Login from './Login'
 import axios from 'axios'
-<<<<<<< HEAD
-import api from "./api"
-=======
-import style from "./App.module.css"
-import Nav from './dashboard/Nav'
+import api from "./api";
+import style from "./App.module.css";
+import Nav from "./dashboard/Nav";
 
->>>>>>> 664b09b (enhance responsive design)
 
 
 const App = () => {
