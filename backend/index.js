@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 
@@ -17,13 +18,15 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 // Middleware 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:5173",
+  process.env.FRONTEND_URL,
+  process.env.DASHBOARD_URL,
+].filter(Boolean);
 
 app.use(cors({
-    origin: [
-        "http://localhost:3000",
-        "http://localhost:5173",
-        process.env.FRONTEND_URL,
-    ],
+    origin: allowedOrigins,
     credentials: true,
 }));
 
