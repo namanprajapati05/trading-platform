@@ -1,8 +1,9 @@
 import { io } from "socket.io-client";
 
-const socket = io("https://backend.getvoroa.com/", {
+const socket = io(import.meta.env.VITE_API_URL, {
     withCredentials: true,
     transports: ["polling"],
+    
 });
 
 export default socket;

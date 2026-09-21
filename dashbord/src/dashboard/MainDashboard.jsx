@@ -13,7 +13,9 @@ const MainDashboard = () => {
    
   return (
     <div>
+        <div className="desktop_navbar">
          <Nav/>
+        </div>
          <Routes>  
           <Route path='/' element={<Dashboard/>} />
           <Route path='/dashboard' element={<Dashboard/>} />

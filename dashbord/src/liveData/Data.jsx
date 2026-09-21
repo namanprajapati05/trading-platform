@@ -27,11 +27,7 @@ const Data = ({ setTradeType, setSelectedStock }) => {
 
         api.get("/watchlist/watchlist")
             .then((res) => {
-
-                // console.log("Watchlist:", res.data);
-
                 setWatchlist(res.data);
-
             })
             .catch((error) => {
 
@@ -47,9 +43,6 @@ const Data = ({ setTradeType, setSelectedStock }) => {
     useEffect(() => {
 
         const handleMarketData = (data) => {
-
-            // console.log("Live market data:", data);
-
             setMarketData(data);
 
         };
@@ -65,18 +58,10 @@ const Data = ({ setTradeType, setSelectedStock }) => {
     }, []);
 
 
-    return (
-        <div className={style.main}>
-
-            {/* <header>
-
-                <span>NIFTY50 24534</span>
-
-                <span>SENSEX 46378</span>
-
-            </header> */}
+return (
+<div className={style.main}>
  
-           <header>
+  <header>
     <span>
         NIFTY50{" "}
         {marketData.find(
@@ -90,7 +75,7 @@ const Data = ({ setTradeType, setSelectedStock }) => {
             (item) => item.symbol === "^BSESN"
         )?.price ?? "--"}
     </span>
-</header>
+  </header>
 
             <main>
 
@@ -131,33 +116,20 @@ const Data = ({ setTradeType, setSelectedStock }) => {
 
                             {watchlist.map((stock) => {
 
-                                // Backend stock name
                                 const symbol = symbolMap[stock.name];
 
-                                // Find live data
                                 const liveStock = marketData.find(
                                     (item) =>
                                         item.symbol === symbol
                                 );
 
+                                const price = liveStock?.price ?? stock.price;
 
-                                // Live price
-                                const price =
-                                    liveStock?.price ?? stock.price;
+                                // const percent = liveStock?.changePercent !== undefined ? `${liveStock.changePercent}%`: stock.percent;
 
+                                 const percent = liveStock?.changePercent !== undefined ? `${liveStock.changePercent}%`: " *** ";
 
-                                // Live percentage
-                                const percent =
-                                    liveStock?.changePercent !== undefined
-                                        ? `${liveStock.changePercent}%`
-                                        : stock.percent;
-
-
-                                // Profit / loss
-                                const isDown =
-                                    liveStock
-                                        ? liveStock.change < 0
-                                        : stock.isDown;
+                                const isDown =  liveStock ? liveStock.change < 0 : stock.isDown;
 
 
                                 return (
@@ -166,35 +138,13 @@ const Data = ({ setTradeType, setSelectedStock }) => {
                                         key={stock._id}
                                         className={style.tableRow}
                                     >
-
-                                        {/* Backend name */}
-                                        <td>
-                                            {stock.name}
-                                        </td>
-
-
-                                        {/* Live price */}
-                                        <td>
-                                            ₹{price}
-                                        </td>
-
-
-                                        {/* Live percentage */}
-                                        <td
-                                            className={
-                                                isDown
-                                                    ? style.loss
-                                                    : style.profit
-                                            }
-                                        >
+                                    <td> {stock.name} </td>
+                                     <td> ₹{price} </td>
+                                     <td className={ isDown ? style.loss : style.profit }>
                                             {percent}
-                                        </td>
-
-
-                                        {/* Buttons */}
-                                        <td className={style.buttons}>
-
-                                            <button
+                                    </td>
+                                    <td className={style.buttons}>
+                                           <button
                                                 className={style.buy}
                                                 onClick={() => {
 

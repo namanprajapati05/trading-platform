@@ -14,3 +14,30 @@
 .main tr {
   border-bottom: 1px solid #ddd;
 }
+
+
+@media (max-width: 768px) {
+  .main {
+    padding: 1rem 0.6rem;
+  }
+
+  .main th,
+  .main td {
+    padding: 8px 6px;
+    font-size: 0.85rem;
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .main {
+    padding: 0.7rem 0.4rem;
+  }
+
+  .main th,
+  .main td {
+    padding: 6px 4px;
+    font-size: 0.7rem;
+  }
+}

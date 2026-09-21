@@ -7,16 +7,11 @@ const Order = () => {
 
    const [orders, setOrders] = useState([]);
 
-
-  // const api = "http://localhost:8000/order/allOrder"
  
   useEffect(() => {
     const getOrders = async () => {
       try {
-        // const response = await axios.get(api, {
-        //   withCredentials: true,
-        // });
-
+ 
         const response = await api.get("/order/allOrder")
 
         // console.log(response.data);

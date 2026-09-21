@@ -1,6 +1,6 @@
 .main {
   display: flex;
-  padding: 1rem 2rem 2.6rem 2rem;
+  padding: 1rem 2rem;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
@@ -10,34 +10,98 @@
 .logo img {
   width: 4rem;
 }
+
 .navLink {
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
+
 .navLink ul {
   list-style: none;
   display: flex;
   gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
+
 .navLink ul li a {
   text-decoration: none;
   color: black;
   font-size: 1.2rem;
-  cursor: pointer;
-}
-.navLink ul li a:hover {
-  color: rgb(12, 131, 186);
 }
 
-.profile{
+.profile {
   display: flex;
   align-items: center;
   gap: 0.7rem;
 }
-.profile img {
-  width: 3rem;
+
+.profile i {
+  font-size: 2rem;
 }
 
-.profile i{
+
+
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
   font-size: 2rem;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 768px) {
+
+  .main {
+    position: relative;
+    padding: 0.8rem 1rem;
+  }
+
+  .logo img {
+    width: 3rem;
+  }
+
+
+  .menuButton {
+    display: block;
+  }
+
+ 
+  .navLink {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 10;
+    padding: 1rem 0;
+    border-bottom: 1px solid gray;
+  }
+
+
+  .menuOpen {
+    display: block;
+  }
+
+  .navLink ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .navLink ul li {
+    padding: 0.8rem 1rem;
+  }
+
+  .navLink ul li a {
+    font-size: 1rem;
+  }
+
+  .profile {
+    padding: 0.8rem 1rem;
+    border-top: 1px solid #ddd;
+  }
 }

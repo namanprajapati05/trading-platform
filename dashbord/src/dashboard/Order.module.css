@@ -61,3 +61,55 @@
   color: red;
   font-weight: 700;
 }
+
+
+
+@media (max-width: 768px) {
+
+  .main {
+    padding: 1rem;
+  }
+
+  .main h1 {
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+  }
+
+  .tableHead th {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .tableBody td {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .main {
+    padding: 0.5rem;
+  }
+
+  .main h1 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .tableHead th {
+    padding: 0.35rem;
+    font-size: 0.7rem;
+  }
+
+  .tableBody td {
+    padding: 0.35rem;
+    font-size: 0.7rem;
+  }
+
+  .table {
+    border-radius: 0.3rem;
+  }
+}
+

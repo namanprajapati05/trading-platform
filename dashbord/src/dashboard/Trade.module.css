@@ -163,3 +163,82 @@
     color: #555;
     font-weight: 500;
 }
+
+
+
+@media (max-width: 768px) {
+
+  .main {
+    padding: 1rem;
+  }
+
+  .wrapper {
+    width: 450px;
+  }
+
+  .body {
+    padding: 1.5rem;
+  }
+
+  .buy h2,
+  .sell h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .head span {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+}
+
+
+
+@media (max-width: 480px) {
+
+  .main {
+    padding: 0.7rem;
+  }
+
+  .wrapper {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .body {
+    padding: 1.2rem;
+  }
+
+  .head span {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .buy h2,
+  .sell h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .buy form,
+  .sell form {
+    gap: 0.8rem;
+  }
+
+  .buy input,
+  .sell input,
+  .buy select,
+  .sell select {
+    height: 44px;
+    padding: 0 10px;
+    font-size: 0.9rem;
+  }
+
+  .buy button,
+  .sell button {
+    height: 44px;
+    font-size: 0.9rem;
+  }
+
+}

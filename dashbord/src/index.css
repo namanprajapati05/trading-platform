@@ -1,4 +1,27 @@
-*{
-    margin: 0px;
-    padding: 0px;
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+
+@media (min-width:787px) {
+    .desktop_navbar {
+    display: block;
+  }
+
+  .phone_navbar{
+    display: none;
+  }
+}
+
+@media (max-width: 786px) {
+  .desktop_navbar {
+    display: none;
+  }
+
+  .phone_navbar{
+    display: block;
+  }
 }

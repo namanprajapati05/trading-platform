@@ -4,7 +4,13 @@ import MainDashboard from './dashboard/MainDashboard'
 import Trade from './dashboard/Trade'
 import Login from './Login'
 import axios from 'axios'
+<<<<<<< HEAD
 import api from "./api"
+=======
+import style from "./App.module.css"
+import Nav from './dashboard/Nav'
+
+>>>>>>> 664b09b (enhance responsive design)
 
 
 const App = () => {
@@ -16,7 +22,6 @@ const App = () => {
 
   const [isLogin, setIsLogin] = useState(false);
   const [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
 
@@ -49,7 +54,8 @@ const App = () => {
 
   return (
     <div style={{ display: 'flex', minHeight: "100vh" }} >
-
+    
+    {/* check is login */}
       {!isLogin && (
         <Login setIsLogin={setIsLogin} />
       )}
@@ -65,20 +71,23 @@ const App = () => {
             />
           )}
 
-          <div
-            style={{
-              width: "33%",
-              borderRight: "1px solid gray",
-            }}
-          >
+         <div className={style.main_container}>
+          
+          <div className="phone_navbar">
+            <Nav/>
+          </div>
+
+          <div className={style.Data_container}>
             <Data
               setTradeType={setTradeType}
               setSelectedStock={setSelectedStock}
             />
           </div>
 
-          <div style={{ width: "67%" }}>
+          <div className={style.Dashboard_container}>
             <MainDashboard  />
+          </div>
+
           </div>
         </>
       )}

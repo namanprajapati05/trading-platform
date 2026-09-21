@@ -1,0 +1,30 @@
+.main_container {
+  display: flex;
+  width: 100%;
+}
+
+.Data_container {
+  width: 33%;
+  border-right: 1px solid gray;
+}
+
+.Dashboard_container {
+  width: 67%;
+}
+
+
+@media (max-width: 768px) {
+  .main_container {
+    flex-direction: column;
+  }
+
+  .Data_container {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid gray;
+  }
+
+  .Dashboard_container {
+    width: 100%;
+  }
+}
