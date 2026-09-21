@@ -1,4 +1,4 @@
-.main{
+/* .main{
     padding:5rem 5rem;
     box-sizing: border-box;
     display: flex;
@@ -44,4 +44,156 @@
     align-items: center;
     font-size: 0.9rem; 
     
+} */
+
+
+
+.main {
+  padding: 5rem 5rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.leftSection {
+  width: 40%;
+}
+
+.leftSection h1 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.leftSection p {
+  font-size: 1.3rem;
+  line-height: 2.4rem;
+}
+
+.leftSection a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.leftSection a:hover {
+  color: black;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pricingSection {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.pricingSection img {
+  width: 8rem;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .main {
+    padding: 3rem 3rem;
+    gap: 3rem;
+  }
+
+  .leftSection {
+    width: 50%;
+  }
+
+  .leftSection h1 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .leftSection p {
+    font-size: 1.15rem;
+    line-height: 2rem;
+  }
+
+  .leftSection a {
+    font-size: 1.15rem;
+  }
+
+  .pricingSection img {
+    width: 6.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+    gap: 2.5rem;
+    align-items: flex-start;
+  }
+
+  .leftSection {
+    width: 100%;
+  }
+
+  .leftSection h1 {
+    font-size: 1.5rem;
+  }
+
+  .leftSection p {
+    font-size: 1.05rem;
+    line-height: 1.8rem;
+  }
+
+  .leftSection a {
+    font-size: 1.1rem;
+  }
+
+  .rightSection {
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .pricingSection img {
+    width: 7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .leftSection h1 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .leftSection p {
+    font-size: 0.95rem;
+    line-height: 1.6rem;
+  }
+
+  .leftSection a {
+    font-size: 1rem;
+  }
+
+  .rightSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .pricingSection img {
+    width: 6rem;
+  }
 }

@@ -1,4 +1,4 @@
-.main{
+/* .main{
     display: flex;
     align-items: center;
     gap: 3rem;
@@ -22,4 +22,108 @@
     font-size: 1.3rem;
     color: gray;
     margin-bottom: 4rem;
+} */
+
+.main {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 7rem 5rem 4rem 5rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.leftSection,
+.rightSection {
+  flex: 1;
+  width: 100%;
+}
+
+.leftSection img {
+  width: 70%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.leftSection h1 {
+  font-size: var(--heading-size, 2rem);
+  margin-top: 3rem;
+}
+
+.rightSection h1 {
+  font-size: var(--heading-size, 2rem);
+  margin-bottom: 2.5rem;
+}
+
+.rightSection p {
+  font-size: 1.3rem;
+  color: gray;
+  margin-bottom: 4rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .main {
+    padding: 5rem 3rem 3rem 3rem;
+    gap: 2rem;
+  }
+
+  .leftSection img {
+    width: 85%;
+  }
+
+  .rightSection p {
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .leftSection img {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .leftSection h1 {
+    margin-top: 1.5rem;
+  }
+
+  .rightSection h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  .rightSection p {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .leftSection img {
+    width: 100%;
+  }
+
+  .leftSection h1,
+  .rightSection h1 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .rightSection p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
 }

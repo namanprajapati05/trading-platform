@@ -1,4 +1,229 @@
-.main{
+
+
+/* Base Container */
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 5rem 1rem 5rem;
+  box-sizing: border-box;
+  border-top: 1px solid lightgray;
+  background-color: white;
+  width: 100%;
+}
+
+/* Top Layout - Flexible Grid */
+.topSection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Column Width Adjustments */
+.section1 {
+  flex: 1 1 220px;
+  max-width: 280px;
+}
+
+#section2,
+#section3,
+#section4,
+#section5 {
+  flex: 1 1 180px;
+}
+
+/* Brand & Social Elements */
+.section1 img {
+  width: 11rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.section1 p {
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  color: gray;
+  line-height: 1.5;
+}
+
+.section1 i {
+  font-size: 1.3rem;
+  margin-right: 0.8rem;
+  color: gray;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.section1 i:hover {
+  color: #0d6efd;
+}
+
+.section1 hr {
+  margin: 1rem 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.playStore {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.playStore img {
+  width: 6.8rem;
+  margin-top: 1.2rem;
+  margin-right: 0;
+}
+
+/* Navigation Link Columns */
+.footerLink {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Changed from center to align neatly */
+  gap: 1rem;
+}
+
+.footerLink h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.footerLink ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footerLink ul a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 2.2rem;
+  color: gray;
+  display: block;
+  transition: color 0.2s ease-in-out;
+}
+
+.footerLink ul a:hover {
+  color: rgb(19, 84, 137);
+}
+
+/* Bottom Legal Disclaimer Section */
+.BottomSection {
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.BottomSection p {
+  margin-top: 1rem;
+  color: gray;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.bottomLinks {
+  margin-top: 2rem;
+}
+
+.bottomLinks ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2rem 2rem;
+  list-style: none;
+  font-size: 0.9rem;
+  padding: 0;
+  margin: 0;
+}
+
+.bottomLinks ul a {
+  text-decoration: none;
+  color: gray;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.bottomLinks ul a:hover {
+  color: rgb(15, 101, 171);
+}
+
+/* -------------------------------- MEDIA QUERIES -------------------------- */
+
+@media (max-width: 1024px) {
+  .main {
+    padding: 2.5rem 3rem 1rem 3rem;
+  }
+
+  .topSection {
+    gap: 2rem 1.5rem;
+  }
+
+  .bottomLinks ul {
+    gap: 1rem 1.5rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .main {
+    padding: 2rem 1.5rem 1rem 1.5rem;
+  }
+
+  .section1 {
+    max-width: 100%;
+    flex: 1 1 100%;
+    margin-bottom: 1rem;
+  }
+
+  #section2,
+  #section3,
+  #section4,
+  #section5 {
+    flex: 1 1 42%; 
+  }
+
+  .bottomLinks ul {
+    justify-content: flex-start;
+    gap: 0.8rem 1.2rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .main {
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+
+  #section2,
+  #section3,
+  #section4,
+  #section5 {
+    flex: 1 1 100%; 
+  }
+
+  .footerLink {
+    align-items: flex-start;
+  }
+
+  .footerLink ul a {
+    line-height: 1.8rem;
+  }
+
+  .bottomLinks ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+}
+
+
+/* .main{
      display: flex;
    flex-direction: column;
    padding: 3rem 5rem 0rem 5rem;
@@ -68,7 +293,8 @@
 
 
 /* -------------------------------- bottomSection  -------------------------- */
-.BottomSection{
+
+/* .BottomSection{
     padding-top: 2rem;
 }
 .BottomSection p{
@@ -96,4 +322,4 @@
 
 .bottomLinks ul a:hover{
     color: rgb(15, 101, 171);
-}
+}  */

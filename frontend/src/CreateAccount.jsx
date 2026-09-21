@@ -27,7 +27,7 @@ const CreateAccount = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/user/signup",
+        "https://backend.getvoroa.com/user/signup",
         formData,
         {
            withCredentials: true
