@@ -13,8 +13,7 @@ const io = new Server(server, {
         origin: [
             "http://localhost:5173",
             "http://localhost:3000",
-            "https://trading-dashboard-7o92f56tn-namans-projects-b6811f1a.vercel.app",
-            "https://trading-dashboard-omega-flax.vercel.app/"
+            "https://trading-dashboard-omega-flax.vercel.app"
         ],
         methods: ["GET", "POST"],
         credentials: true,
