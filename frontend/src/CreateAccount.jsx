@@ -4,7 +4,7 @@ import style from "./CreateAccount.module.css"
 
 const CreateAccount = () => {
 
-    const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     userName: "",
