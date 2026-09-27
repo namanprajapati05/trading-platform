@@ -21,13 +21,6 @@ const Login = ({setIsLogin}) => {
 
         try {
 
-            // const response = await axios.post(
-            //     "http://localhost:8000/user/login",
-            //     loginData,
-            //     {
-            //         withCredentials: true,
-            //     }
-            // );
 
             const response = await api.post("/user/login" ,  loginData ) ;
 
@@ -37,23 +30,6 @@ const Login = ({setIsLogin}) => {
             console.log(error.response?.data);
         }
     };
-
-
-    
-// const getProfile = async () => {
-//   try {
-//     const response = await axios.get(
-//       "http://localhost:8000/user/profile",
-//       {
-//         withCredentials: true,
-//       }
-//     );
-
-//     console.log(response.data);
-//   } catch (error) {
-//     console.log(error.response?.data);
-//   }
-// };
 
 
     return (

@@ -6,6 +6,8 @@ import Holding from './Holding'
 import Position from './Position'
 import Order from './Order'
 import Fund from './Fund'
+import UnderDevelopment from '../../../frontend/src/UnderDevelopment'
+import NotFound from '../Pages/NotFound'
 
 
 const MainDashboard = () => {
@@ -19,10 +21,11 @@ const MainDashboard = () => {
          <Routes>  
           <Route path='/' element={<Dashboard/>} />
           <Route path='/dashboard' element={<Dashboard/>} />
-          <Route path='/holdings'  element={<Holding/>} />
-          <Route path="/positions" element={<Position/>} />
+          <Route path='/holdings'  element={<UnderDevelopment/>} />
+          <Route path="/positions" element={<UnderDevelopment />} />
           <Route path='/orders' element={<Order/>}/>
-          <Route path='/funds' element={<Fund/>} />
+          <Route path='/funds' element={<UnderDevelopment/>} />
+          <Route path='*' element={<NotFound/>} />
 
         </Routes> 
     </div>
