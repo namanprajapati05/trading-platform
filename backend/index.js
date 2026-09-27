@@ -25,6 +25,8 @@ const allowedOrigins = [
   process.env.DASHBOARD_URL,
 ].filter(Boolean);
 
+console.log("Allowed origins:", JSON.stringify(allowedOrigins));
+
 app.use(cors({
     origin: allowedOrigins,
     credentials: true,
