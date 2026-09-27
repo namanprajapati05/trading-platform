@@ -12,7 +12,7 @@ const positionRoutes = require("./routes/position")
 const holdingRoutes = require("./routes/holding")
 const watchlistRoutes = require("./routes/watchlist")
 const orderRoutes = require("./routes/order")
-const cookieParser = require("cookie-parser");
+
 
 const app = express();
 const PORT = process.env.PORT || 8000;
